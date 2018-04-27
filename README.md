@@ -1,3 +1,6 @@
+This Project refers to below repo.
+Original repo: https://github.com/zoltan-nz/library-app
+
 # library-app
 
 This README outlines the details of collaborating on this Ember application.

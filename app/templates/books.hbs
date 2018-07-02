@@ -1,0 +1,68 @@
+<h1>Books</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Titles</th>
+            <th>Release Year</th>
+            <th class="vtop">Libraries</th>
+            <th class="vtop">Authors</th>
+        </tr>
+        <tr>
+            <br><small class ="small not-bold">(Click on books' Titles or Release Year for Editing)</small>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each model as |book|}}
+            <tr>
+                <td>
+                    {{#if book.isEditingTitle}}
+                        <form {{action 'saveBookTitle' book on='submit'}} class='form-inline'>
+                            <div class='input-group'>
+                                {{input value=book.title class='form-control'}}
+                                <div class='input-group-btn'>
+                                    <button type="submit" class="btn btn-success" disabled={{book.isNotValidTitle}}>Save</button>
+                                    <button class="btn btn-danger" {{action 'cancelBookEditTitle' book}}>Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    {{else}}
+                        <span {{action 'editBookTitle' book}}>{{book.title}}</span>
+                    {{/if}}
+                </td>
+                <td>
+                    {{#if book.isEditingYear}}
+                        <form {{action 'saveBookYear' book on='submit'}} class='form-inline'>
+                            <div class='input-group'>
+                                {{input value=book.releaseYear class='form-control'}}
+                                <div class='input-group-btn'>
+                                    <button type="submit" class="btn btn-success" disabled={{book.isNotValidYear}}>Save</button>
+                                    <button class="btn btn-danger" {{action 'cancelBookEditYear' book}}>Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    {{else}}
+                        <span {{action 'editBookYear' book}}>{{book.releaseYear}}</span>
+                    {{/if}}
+                </td>
+                <td>
+                    <ul>
+                        {{!-- {{debugger}} --}}
+                        {{!-- {{#each book.library as |library|}} --}}
+                            <li>{{book.library.name}}</li>
+                        {{!-- {{/each}} --}}
+                    </ul>
+                </td>
+                
+                <td>
+                    <ul>
+                        {{!-- {{#each book.author as |author|}} --}}
+                            <li>{{book.author.name}}</li>
+                        {{!-- {{/each}} --}}
+                    </ul>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+
+</table>

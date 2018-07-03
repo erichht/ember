@@ -1,5 +1,5 @@
 # Statement
-This Project repo refers to below. 
-* Original repo: https://github.com/zoltan-nz/library-app
+This Project repo followes below tutorial. 
+* Original tutorial: https://yoember.com/
 
-# library-app
+# Library-app
